@@ -5,8 +5,8 @@ dist: trusty
 os:
   - linux
 env:
-  - JOB="-p NVIDIA-GPU -o Centos"
-  - JOB="-p NVIDIA-GPU -o Ubuntu"
+  #- JOB="-p NVIDIA-GPU -o Centos"
+  #- JOB="-p NVIDIA-GPU -o Ubuntu"
   - JOB="-p AMD-GPU -o Centos"
   #- JOB="-p AMD-GPU -o Ubuntu"
   #- JOB="-p X86-ONLY -o Centos"
@@ -21,7 +21,7 @@ services:
   - docker
 
 install:
-  - sudo apt-get install nvidia-cuda-toolkit
+  #- sudo apt-get install nvidia-cuda-toolkit
 
 script:
   - cd docker
@@ -29,13 +29,11 @@ script:
 
 branches:
   only:
-  - master
-  - developing
-  - AMD
+  - AMD-test
 
 notifications:
   email:
     recipients:
-    - xukailu@baidu.com
+    - vin.huang@amd.com
     on_success: change
     on_failure: always
